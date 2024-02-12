@@ -1,20 +1,28 @@
 <?php
-    function getPrimeNumber($value) {
+    function getPrimeNumbers($value) {
         $flag = false;
+        $array = "";
         for ($i = 2; $i < $value; $i++) {
-            if($value % $i == 0) {
-                $flag = true;
+            $temp = 0;
+            for ($j = 2; $j <= $i/2; $j++) {
+                if($i % $j == 0) {
+                    $temp++;
+                    $flag = true;
+                }
+            }
+
+            if($temp == 0) {
+                echo "$i<br/>";
             }
         }
-
-        return $flag;
+        // return $flag;
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $zahl1 = $_POST["zahl1"];
-        $isPrime =  getPrimeNumber($zahl1);
-        echo "<script>console.log($isPrime);</script>";
-        echo $isPrime;
+        getPrimeNumbers($zahl1);
+        // echo "<script>console.log($isPrime);</script>";
+        // echo $isPrime;
     }
 ?>
 
