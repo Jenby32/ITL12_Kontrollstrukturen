@@ -15,14 +15,23 @@
                 echo "$i<br/>";
             }
         }
-        // return $flag;
+    }
+
+    function logExcercise() {
+        for ($i = 1; $i <= 100; $i++) {
+            $starStr = "";
+            $repeat = 10*log($i);
+            for($j = 1; $j < $repeat; $j++) {
+                $starStr .= "*";
+            }
+            echo "$starStr<br/>";
+        }
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $zahl1 = $_POST["zahl1"];
         getPrimeNumbers($zahl1);
-        // echo "<script>console.log($isPrime);</script>";
-        // echo $isPrime;
+        logExcercise();
     }
 ?>
 
